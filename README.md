@@ -1,2 +1,3 @@
 # palautusrepositorio
-Ohjelmistotuotanto-kurssin laskarien palautus repo
+
+https://github.com/aadnw/ohtuvarasto.git 
