@@ -13,8 +13,19 @@ def main():
     for player in philadelphia_flyers_players:
         print(player)
 
+    # järjestetään kaikkien tehopisteiden eli maalit+syötöt perusteella
     print("Top point getters:")
-    for player in top_scorers:
+    for player in stats.top(10, SortBy.POINTS):
+        print(player)
+
+    # järjestetään maalien perusteella
+    print("Top point goal scorers:")
+    for player in stats.top(10, SortBy.GOALS):
+        print(player)
+
+    # järjestetään syöttöjen perusteella
+    print("Top by assists:")
+    for player in stats.top(10, SortBy.ASSISTS):
         print(player)
 
 
