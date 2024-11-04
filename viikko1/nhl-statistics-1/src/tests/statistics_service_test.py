@@ -34,7 +34,18 @@ class TestStatisticsService(unittest.TestCase):
 
         self.assertEqual(tulos, self.stats.team("PIT"))
 
-    def test_top_returns_correctly(self):
-        tulos = self.stats.top(1)
+    def test_top1_returns_correctly(self):
+        tulos = self.stats.top(1, 1)
 
-        self.assertEqual(tulos, self.stats.top(1))
+        self.assertEqual(tulos, self.stats.top(1, 1))
+
+    def test_top2_returns_correctly(self):
+        tulos = self.stats.top(1, 2)
+
+        self.assertEqual(tulos, self.stats.top(1, 2))
+
+    def test_top3_returns_correctly(self):
+        tulos = self.stats.top(1, 3)
+
+        self.assertEqual(tulos, self.stats.top(1, 3))
+
