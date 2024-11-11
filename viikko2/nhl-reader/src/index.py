@@ -27,7 +27,7 @@ class PlayerStats(PlayerReader):
         for player in players:
             if player.nationality == country:
                 players_by_country.append(player)
-                players_by_country = sorted(players_by_country, key=lambda player: player.sum)
+                players_by_country = sorted(players_by_country, key=lambda player: player.sum, reverse=True)
 
         print("Players from " + country + "\n")
         return players_by_country
