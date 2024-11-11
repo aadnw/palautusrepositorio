@@ -19,13 +19,25 @@ def main():
         countrys_players = []
         for player_dict in response:
             if player_dict['nationality'] == country:
-                countrys_players.append(Player(player_dict))
+                player = Player(player_dict)
+                countrys_players.append(player)
+                countrys_players = sorted(countrys_players, key=lambda player: player.sum)
         players[country] = countrys_players
 
-    for country in players:
-        print("\n"+"Players from "+country+"\n")
-        for player in players[country]:
-            print(player) 
+    print("Players from FIN" + "\n")
+
+    for player in players['FIN']:
+        print(player)
+
+
+
+        
+
+        
+    #for country in players:
+    #    print("\n"+"Players from "+country+"\n")
+    #    for player in players[country]:
+    #        print(player) 
 
 
 if __name__ == "__main__":
