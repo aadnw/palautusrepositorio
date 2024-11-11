@@ -16,11 +16,28 @@ class PlayerReader:
 
         return players
 
+class PlayerStats(PlayerReader):
+    def __init__(self, playerreader):
+        self.url = playerreader.url
+
+    def top_scores_by_nationality(self, country):
+        players = self.get_players()
+        players_by_country = []
+
+        for player in players:
+            if player.nationality == country:
+                players_by_country.append(player)
+                players_by_country = sorted(players_by_country, key=lambda player: player.sum)
+
+        print("Players from " + country + "\n")
+        return players_by_country
+    
 def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2023-24/players"
     reader = PlayerReader(url)
+    stats = PlayerStats(reader)
 
-    players = reader.get_players()
+    players = stats.top_scores_by_nationality("FIN")
 
     for player in players:
         print(player)
