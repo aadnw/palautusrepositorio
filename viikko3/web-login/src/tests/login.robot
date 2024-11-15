@@ -11,6 +11,12 @@ Login With Correct Credentials
     Submit Credentials
     Login Should Succeed
 
+Login With Nonexistent Username
+    Set Username  kaaalle
+    Set Password  kalle123
+    Submit Credentials
+    Login Should Fail With Message  Invalid username or password
+
 Login With Incorrect Password
     Set Username  kalle
     Set Password  kalle456
@@ -42,3 +48,4 @@ Reset Application Create User And Go To Login Page
     Reset Application
     Create User  kalle  kalle123
     Go To Login Page
+
