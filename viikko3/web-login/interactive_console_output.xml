@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20241115 13:42:19.549" rpa="false" schemaversion="4">
+<suite id="s1" name="Robot Interactive Console" source="/home/nwaada/.vscode/extensions/robocorp.robotframework-lsp-1.13.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Set Username">
+<arg>kikka</arg>
+<msg timestamp="20241115 13:42:19.852" level="FAIL">No keyword with name 'Set Username' found.</msg>
+<status status="FAIL" starttime="20241115 13:42:19.852" endtime="20241115 13:42:19.852"/>
+</kw>
+<kw name="Set Password">
+<arg>testi123</arg>
+<status status="NOT RUN" starttime="20241115 13:42:19.853" endtime="20241115 13:42:19.853"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi123</arg>
+<status status="NOT RUN" starttime="20241115 13:42:19.854" endtime="20241115 13:42:19.854"/>
+</kw>
+<kw name="Submit Credentials">
+<status status="NOT RUN" starttime="20241115 13:42:19.855" endtime="20241115 13:42:19.855"/>
+</kw>
+<kw name="Registration Should Fail With Message">
+<arg>"User with username kikka already exists"</arg>
+<status status="NOT RUN" starttime="20241115 13:42:19.855" endtime="20241115 13:42:19.855"/>
+</kw>
+<status status="PASS" starttime="20241115 13:42:19.566" endtime="20241115 13:42:24.966"/>
+</kw>
+<status status="PASS" starttime="20241115 13:42:19.565" endtime="20241115 13:42:24.966"/>
+</test>
+<status status="PASS" starttime="20241115 13:42:19.551" endtime="20241115 13:42:24.966"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -2,7 +2,7 @@ from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository
 )
-
+import string
 
 class UserInputError(Exception):
     pass
@@ -42,5 +42,23 @@ class UserService:
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
 
+        existing_user = default_user_repository.find_by_username(username)
+
+        if existing_user:
+            raise UserInputError(f"User with username {username} already exists")
+
+        for i in username:
+            if i not in string.ascii_lowercase or len(username) < 3:
+                raise UserInputError("Username has to be at least 3 characters long and contain only letters from a-z")
+
+        if len(password) < 8:
+            raise UserInputError("Password must be at least 8 characters long")
+        
+        if string.digits not in password and string.punctuation not in password:
+            raise UserInputError("Password has to include numbers or special characters")
+        
+        if password_confirmation != password:
+            raise UserInputError("The password confirmation doesn't match the given password")
+    
 
 user_service = UserService()

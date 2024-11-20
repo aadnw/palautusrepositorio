@@ -81,7 +81,7 @@ def handle_register():
 
     try:
         user_service.create_user(username, password, password_confirmation)
-        return redirect_to_welcome()
+        return redirect_to_ohtu()
     except Exception as error:
         flash(str(error))
         return redirect_to_register()
