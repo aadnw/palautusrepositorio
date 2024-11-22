@@ -21,6 +21,8 @@ class Kauppa:
             tuote = self._varasto.hae_tuote(id)
             self._ostoskori.lisaa(tuote)
             self._varasto.ota_varastosta(tuote)
+        if self._varasto.saldo(id) == 0:
+            pass
 
     def tilimaksu(self, nimi, tili_numero):
         viite = self._viitegeneraattori.uusi()
