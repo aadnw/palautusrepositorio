@@ -1,13 +1,40 @@
-class And:
+class All: #tosi kaikille pelaajille
     def __init__(self, *matchers):
         self._matchers = matchers
 
     def test(self, player):
         for matcher in self._matchers:
             if not matcher.test(player):
+                continue
+        return True
+
+class And:
+    def __init__(self, *matchers):
+        self._matchers = matchers
+
+    def test(self, player):
+
+        for matcher in self._matchers:
+            if not matcher.test(player):
                 return False
 
         return True
+    
+class Or:
+    def __init__(self, *matchers):
+        self._matchers = matchers
+    
+    def test(self, player):
+        for matcher1 in self._matchers:
+            for matcher2 in self._matchers:
+                if matcher2.test(player):
+                    return True
+            if matcher1.test(player):
+                return True
+            
+
+        return False
+
 
 class PlaysIn:
     def __init__(self, team):
@@ -26,26 +53,6 @@ class HasAtLeast:
         player_value = getattr(player, self._attr)
 
         return player_value >= self._value
-    
-class All: #tosi kaikille pelaajille
-    def __init__(self, *matchers):
-        self._matchers = matchers
-
-    def test(self, player):
-        for matcher in self._matchers:
-            if not matcher.test(player):
-                continue
-        return True
-
-class Not: #parametrina olevan ehdon negaatio
-    def __init__(self, *matchers):
-        self._matchers = matchers
-
-    def test(self, player):
-        for matcher in self._matchers:
-            if matcher.test(player):
-                return False
-            return True
 
 class HasFewerThan: #HasAtLeast-komennon negaatio eli esim. on vähemmän kuin 10 maalia
     def __init__(self, value, attr):
@@ -56,3 +63,13 @@ class HasFewerThan: #HasAtLeast-komennon negaatio eli esim. on vähemmän kuin 1
         player_value = getattr(player, self._attr)
 
         return player_value < self._value
+    
+class Not: #parametrina olevan ehdon negaatio
+    def __init__(self, *matchers):
+        self._matchers = matchers
+
+    def test(self, player):
+        for matcher in self._matchers:
+            if matcher.test(player):
+                return False
+            return True
